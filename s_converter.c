@@ -2,6 +2,7 @@
  * Trivial implementation of converter function.
  * You may override this file or create your own.
  */
+//3's: 136300, 4's: 2232595, 5's: 82585
 #include "converter.h"
 #include <stdlib.h>
 #include <stdio.h>
