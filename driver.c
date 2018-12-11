@@ -69,6 +69,7 @@ int main(int argc, char *argv[])
     convert_all(nlines, lines, nums);
     double t = (double)(clock() - t0) / CLOCKS_PER_SEC;
     assert(checksum(nums, nlines) == QUOTES_CSUM);
+    printf("%fl\n", t);
     if (t < min_t) {
       min_t = t;
     }
