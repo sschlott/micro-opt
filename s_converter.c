@@ -5,6 +5,7 @@
 //Best run time overall: 0.004024s as of 12/11 at 1am
 //Bitwise conversions consistently slower. Tried with just on len 3, 4, 5 etc., always lost .001s+ 
 //i declared outside the loop harms performance (.002s slower)
+//Couldn't get cases to work in the manner I use if/else right now
 #include "converter.h"
 #include <stdlib.h>
 #include <stdio.h>
