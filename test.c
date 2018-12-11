@@ -13,9 +13,9 @@ int convert_all(char * word )
 }
 int  main()
 {
-    char blah[5] = "42069";
-    int wow = convert_all(blah);
-    printf("%d\n",wow);
+    char quote[5] = "12345";
+    int numeric = convert_all(quote);
+    printf("%d\n",numeric);
     return 0;
 }
 
