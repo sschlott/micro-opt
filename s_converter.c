@@ -3,6 +3,10 @@
  * You may override this file or create your own.
  */
 //3's: 136300, 4's: 2232595, 5's: 82585
+//Found little change/slightly worse performance with word[4]=='\0' arrangement
+//took significantly longer using strlen()
+//Pretty similar using define or just putting constants in (going to keep pretties version here)
+//Best run time overall: 0.004024s as of 12/11 at 1am
 #include "converter.h"
 #include <stdlib.h>
 #include <stdio.h>
