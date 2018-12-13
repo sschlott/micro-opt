@@ -16,9 +16,9 @@ void convert_all(unsigned nlines, char *lines[], quote_t nums[])
     for (unsigned i = 0; i < nlines; ++i) 
     {    
 	char * word = lines[i];
-	if (word[4] != '\0')
+	if (word[4])
 	{
-		if (word[3]!= '\0')
+		if (word[3])
 		{
 		    
 		    nums[i]= ((((word[0]-48)*TENS + (word[1]-48))*TENS + (word[2]-48))*TENS +(word[3]-48))*TENS + (word[4]-48);
