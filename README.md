@@ -51,7 +51,7 @@ I started using:
 This cut off about .0006 seconds, taking me from 14.8x faster to 16.2x faster.  
 
 ## Some Cool Bug I encountered
-This doesn't work on my desktop computer, where the clock would only measure the time in discrete amounts. It would measure only multiples of .015625 seconds, so when my optimization became faster than that, it reported taking only zero seconds. 
+This doesn't work on my desktop computer, where the clock would only measure the time in discrete amounts. It would measure only multiples of .015625 seconds, so when my optimization became faster than that, it reported taking only zero seconds. Note: This involved me changing `driver.c` to include a `printf(%f,t)` so I could see what times were being recorded. Nothing changed about actual functionality/API. You do not need my `driver.c` for this to work.
 
 For the same files compiled with the same flags I saw the following
 ### Time as measured on my desktop computer:
