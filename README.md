@@ -1,15 +1,29 @@
 # Micro Optimization
 Code for Sierra Schlott's Micro-Optimization of an atoi converter 
-Important files: 
-* `converter.c` my implementation of converter
-* `old_converter.c` some person on stack exchange's fast_atoi
-* `converter_original.c` The orignal converter (only uses atoi library call)
 
 #### Best run time overall for converter_original.c: 0.059506s
 #### Best run time overall for converter.c: 0.003674s(My implemetation)  
-Final: About 16.2 times faster than the orinigan implementation. 
+Best run time overall for old_converter.c: 0.007489s  [(Stack exchange fast_atoi)](https://stackoverflow.com/questions/16826422/c-most-efficient-way-to-convert-string-to-int-faster-than-atoi "fast_atoi")
+
+Final: About **16.2x faster than the original implementation**; 2.04x faster than fast_atoi. 
+
 Recorded on laptop's VM, 10000 iters, with minimal interruptions
 
+## Important files: 
+* `converter.c` my implementation of converter
+* `old_converter.c` some person on stack exchange's fast_atoi
+* `converter_original.c` The orignal converter (only uses atoi library call)
+* `test.c` was only used as a way of working through bugs for my atoi implementation. Not used in compiling process.
+
+To run: 
+```
+gcc -O3 -std=c99 -march=native -o driver -Werror -Wall -Wextra -pedantic converter.c driver.c
+./driver quotes.txt 10000
+```
+
+
+
+## Optimization Process
 To start, I wanted my code to implement atoi since making library calls can be expensive in terms of time. Admittedly, I did look up an implementation of atoi by some person on stack overflow, but realized it wouldn’t be in the spirit of the assignment and abandoned it. This is located in my `old_converter.c`. After this, I stopped looking at the implementation this person had used and worked through the process of finding what worked best for myself.
 
 The main change I started with was trying my own atoi. I looked up the corresponding integer values on an ascii table and found ‘0’ started at int 48. So, for any index in a string of number chars, I knew I would only have to subtract 48 in order to get the actual value. I started off using this as a function that was written outside of convert_all, but eventually brought it into my main function. 
@@ -37,4 +51,11 @@ I started using:
 This cut off about .0006 seconds, taking me from 14.8x faster to 16.2x faster.  
 
 ## Some Cool Bug I encountered
-This doesn't work on my desktop computer, where the clock would only measure the 
+This doesn't work on my desktop computer, where the clock would only measure the time in discrete amounts. It would measure only multiples of .015625 seconds, so when my optimization became faster than that, it reported taking only zero seconds. 
+
+For the same files compiled with the same flags I saw the following
+### Time as measured on my desktop computer:
+![alt text](https://github.com/sschlott/micro-opt/blob/master/odd%20bug.PNG "Desktop")
+
+### Time as measured on my laptop:
+![alt text](https://github.com/sschlott/micro-opt/blob/master/laptop_nobug.PNG "Laptop")
